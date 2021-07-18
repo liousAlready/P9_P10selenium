@@ -12,9 +12,18 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+STYLE = "background: green; border: 2px solid red;"  # 高亮的样式
+
+
+def find(driver, by, expr):
+    element = driver.find_element(by, expr)
+    driver.execute_script("arguments[0].setAttribute('style', arguments[1]);", element, STYLE)
+    return element
+
+
 driver = webdriver.Chrome()
 driver.get("https://www.baidu.com")
-
+find(driver,By.NAME,'wd').click()
 # 实验步骤：
 
 # 1.扩展知识：元素高亮
