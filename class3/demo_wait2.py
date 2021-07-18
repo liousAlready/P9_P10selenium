@@ -8,6 +8,8 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 STYLE = "background: blue; border: 2px solid red;"  # 高亮的样式
 
@@ -45,8 +47,10 @@ driver.get("file:///Users/lishouwu/Downloads/Wait.html")
 # highLightElement(driver, el)
 
 # 5.WebDriverWait():显示等待，加显示10s
+driver.find_element(By.ID, 'b').click()
+element = WebDriverWait(driver, 5).until(lambda x: x.find_element_by_css_selector('div.red_box'))
 
-
+highLightElement(driver, element)
 
 time.sleep(2)
 
