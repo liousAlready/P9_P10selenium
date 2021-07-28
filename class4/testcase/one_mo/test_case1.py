@@ -15,12 +15,13 @@ class TestCase01(unittest.TestCase):
         print("执行后置信息")
 
     def test_case01(self):
+        '''加法'''
         self.assertEqual(1 + 2, 3)
 
     def test_case02(self):
         self.assertEqual(1 + 2, 2)
 
 
-if __name__ == "__main__":
-    TestCase01().test_case01()
-    TestCase01().test_case02()
+# if __name__ == "__main__":
+#     TestCase01().test_case01()
+#     TestCase01().test_case02()
